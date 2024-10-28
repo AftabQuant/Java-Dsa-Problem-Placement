@@ -1,6 +1,6 @@
 package ArraysAndHashing;
 
-public class ConcatenationOfArray{
+public class _3ConcatenationOfArray {
     static void print(int[] arr){
         for(int ele : arr)System.out.print(ele+" ");
         System.out.println();

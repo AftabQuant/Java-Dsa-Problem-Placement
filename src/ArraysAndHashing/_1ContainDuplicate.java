@@ -1,7 +1,7 @@
 package ArraysAndHashing;
 import java.util.HashSet;
 
-public class ContainDuplicate{
+public class _1ContainDuplicate {
     static boolean isContain(int[] arr){
         HashSet<Integer> set = new HashSet<>();
         for(int ele : arr){
