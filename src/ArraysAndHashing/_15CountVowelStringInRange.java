@@ -1,5 +1,8 @@
 package ArraysAndHashing;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class _15CountVowelStringInRange {
     public boolean iSVowel(String s) {
         boolean flag = false; int n = s.length()-1;
@@ -10,7 +13,7 @@ public class _15CountVowelStringInRange {
         }
         return flag;
     }
-    public int[] vowelStrings(String[] s, int[][] queries) {
+    public int[] vowelStrings1(String[] s, int[][] queries) {
         int n = queries.length; int m = queries[0].length-1;
         int[] ans = new int[n];
         for(int i=0; i<n; i++) {
@@ -23,6 +26,20 @@ public class _15CountVowelStringInRange {
                 if(flag) count++;
             }
             ans[i] = count;
+        }
+        return ans;
+    }
+    public int[] vowelStrings(String[] s, int[][] queries) {
+        int n = s.length;
+        int[] pre = new int[n+1];
+        HashSet<Character> vowel = new HashSet<>(Arrays.asList('a','e','i','o','u'));
+        for(int i=0; i<n; i++) {
+            pre[i+1] = pre[i]; // Cumulative Sum
+            if(vowel.contains(s[i].charAt(0)) && vowel.contains(s[i].charAt(s[i].length()-1))) pre[i+1]++;
+        }
+        int[] ans = new int[queries.length]; int m = queries[0].length-1;
+        for(int i=0; i<ans.length; i++) {
+            ans[i] = pre[queries[i][m]]- pre[queries[i][0]];
         }
         return ans;
     }
