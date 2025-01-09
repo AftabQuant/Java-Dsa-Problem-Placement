@@ -8,7 +8,7 @@
 <p>
     - Problems are categorized and solved systematically to cover a wide range of topics.
 </p>
-<h2>Goals</h2>
+<h3>Goals</h3>
     <ul>
         <li>Improve coding consistency and efficiency.</li>
         <li>Develop a strong grasp of fundamental and advanced concepts in programming.</li>
