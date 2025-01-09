@@ -1,5 +1,5 @@
 <p> Welcome to my <strong>30 Days Coding Challenge</strong> repository! This project is dedicated to solving LeetCode problems over a span of 30 days to strengthen my problem-solving skills and deepen my understanding of algorithms and data structures.  </p>
-<h2>Repository Overview</h2>
+<h3>Repository Overview</h3>
     <ul>
         <li><strong>Language Used:</strong> Java</li>
         <li><strong>Focus Areas:</strong> Arrays, Strings, Trees, Graphs, Dynamic Programming, and more.</li>
