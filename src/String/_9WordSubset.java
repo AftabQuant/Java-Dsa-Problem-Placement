@@ -1,7 +1,7 @@
 package String;
 import java.util.*;
 
-public class _WordSubset {
+public class _9WordSubset {
     public boolean subset(int[] source, int[] dest) {
         for(int i=0; i<26; i++){
             if(dest[i]>source[i]) return false;
