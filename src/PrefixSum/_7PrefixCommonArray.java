@@ -2,20 +2,14 @@ package PrefixSum;
 import java.util.*;
 
 public class _7PrefixCommonArray {
-    public int[] findThePrefixCommonArray(int[] A, int[] B) {
-        Map<Integer, Integer> map = new HashMap<>();
-        int[] c = new int[A.length];
-        c[0] = 0;
-        for(int i=0; i<A.length; i++) {
-            int ele1 = A[i];
-            int ele2 = B[i];
-            if(map.containsKey(ele1) && map.containsKey(ele2)) {
-                c[i] = map.size();
-            }
-            else {
-                map.put(ele1, 1);
-                map.put(ele2, 1);
-            }
+    public int[] findThePrefixCommonArray(int[] a, int[] b) {
+        int[] c = new int[a.length];
+        int[] freq = new int[a.length+1];
+        int count = 0;
+        for(int i=0; i<a.length; i++) {
+            if(++freq[a[i]]==2) count++;
+            if(++freq[b[i]]==2) count++;
+            c[i] = count;
         }
         return c;
     }
