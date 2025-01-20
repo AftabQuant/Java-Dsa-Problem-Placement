@@ -10,7 +10,7 @@ public class _7NextGreaterElement {
         st.push(arr[n-1]);
         ans[n-1] = -1;
         for(int i=n-2; i>=0; i--) {
-            while(!st.isEmpty() && st.peek() < arr[i]) st.pop();
+            while(!st.isEmpty() && st.peek() <= arr[i]) st.pop();
             if(st.isEmpty()) ans[i] = -1;
             else ans[i] = st.peek();
             st.push(arr[i]);
@@ -21,6 +21,8 @@ public class _7NextGreaterElement {
     }
     public static void main(String[] args) {
         int[] arr = {3,10,4,2,1,6,1,7,2,9};
+        nextGreater(arr);
+        System.out.println();
         int n = arr.length;
         arr[n-1] = -1;
         for(int i=0; i<n; i++) {
@@ -37,6 +39,6 @@ public class _7NextGreaterElement {
             System.out.print(ele+" ");
         }
         System.out.println();
-        nextGreater(arr);
+
     }
 }
