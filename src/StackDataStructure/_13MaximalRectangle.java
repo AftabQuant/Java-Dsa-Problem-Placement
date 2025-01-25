@@ -1,7 +1,9 @@
 package StackDataStructure;
-import java.util.*;
 
-public class _11LargestRectangleInHist {
+import java.util.ArrayList;
+import java.util.Stack;
+
+public class _13MaximalRectangle {
     public int[] nextSmaller(int[] arr) {
         int n = arr.length;
         int[] nse = new int[arr.length];
@@ -24,7 +26,7 @@ public class _11LargestRectangleInHist {
         }
         return pse;
     }
-    public int largestRectangleArea(int[] heights) {
+    public int MAH(int[] heights) {
         int n = heights.length;
         int[] nse = nextSmaller(heights);
         int[] pse = prevSmaller(heights);
@@ -32,6 +34,22 @@ public class _11LargestRectangleInHist {
         for(int i=0; i<n; i++){
             int height = heights[i] * (nse[i] - pse[i] -1);
             max = Math.max(max, height);
+        }
+        return max;
+    }
+    public int maximalRectangle(char[][] matrix) {
+        int n = matrix.length;
+        if(n==0) return 0;
+        int m = matrix[0].length;
+        int[] arr = new int[m];
+        for(int i=0; i<m; i++) arr[i] = matrix[0][i] - '0';
+        int max = MAH(arr);
+        for(int i=1; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                if(matrix[i][j] == '0') arr[j] = 0;
+                else arr[j] += matrix[i][j] -'0';
+            }
+            max = Math.max(max,MAH(arr));
         }
         return max;
     }
