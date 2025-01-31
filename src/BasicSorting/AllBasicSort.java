@@ -71,10 +71,10 @@ public class AllBasicSort {
         int[] br = {5,4,3,2,1};
         int[] cr = {1,2,3,4,5};
         mergeSort(ar);
-//        print(ar);
+//        preOrder(ar);
         mergeSort(br);
-//        print(br);
+//        preOrder(br);
         mergeSort(cr);
-//        print(cr);
+//        preOrder(cr);
     }
 }
