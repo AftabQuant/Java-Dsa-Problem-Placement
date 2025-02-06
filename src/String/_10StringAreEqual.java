@@ -1,6 +1,5 @@
 package String;
-
-import java.util.Arrays;
+import java.util.*;
 
 public class _10StringAreEqual {
     public static boolean areAlmostEqual(String s1, String s2) {
@@ -18,5 +17,6 @@ public class _10StringAreEqual {
     }
     public static void main(String[] args) {
         System.out.println(areAlmostEqual("abcd", "dcba"));
+
     }
 }
