@@ -17,4 +17,7 @@ public class _10BinaryTreePath {
         helper(root,"",res);
         return res;
     }
+
+    public static void main(String[] args) {
+    }
 }
