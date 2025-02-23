@@ -14,4 +14,8 @@ public class _8DiameterOfBT {
         int right = diameterOfBinaryTree(root.right);
         return Math.max(total, Math.max(left, right));
     }
+
+    public static void main(String[] args) {
+
+    }
 }
