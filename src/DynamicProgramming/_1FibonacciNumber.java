@@ -11,4 +11,7 @@ public class _1FibonacciNumber {
         return fibo(n, dp);
     }
 
+    public static void main(String[] args) {
+        System.out.println(fib(7));
+    }
 }
