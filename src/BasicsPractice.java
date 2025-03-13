@@ -47,9 +47,22 @@ public class BasicsPractice {
         }
         return res;
     }
-    public static void main(String[] args) {
-        for(int i=1; i<=100; i++) {
-            if(primeNumber(i)) System.out.print(i + " ");
+    public static ArrayList<Integer> unique_element(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> res = new ArrayList<>();
+        for(int ele: nums) {
+            if(map.containsKey(ele)) map.put(ele, map.get(ele)+1);
+            else map.put(ele, 1);
         }
+        for(int key:map.keySet()) {
+            int freq = map.get(key);
+            if(freq==1) res.add(key);
+        }
+        return res;
+    }
+    public static void main(String[] args) {
+        int[] nums = {1,2,1,3,2,5};
+        System.out.println(unique_element(nums));
+
     }
 }

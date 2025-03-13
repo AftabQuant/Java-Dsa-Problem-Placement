@@ -8,7 +8,6 @@ public class _13MaxTwinSumOfLL {
         a.next = head;
         head.next = null;
         return newHead;
-
     }
     public int pairSum(ListNode head) {
         ListNode slow = head;
