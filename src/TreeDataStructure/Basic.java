@@ -19,6 +19,10 @@ public class Basic {
         postOrder(root.right);
         System.out.print(root.val+" ");
     }
+    public static int maxDepth(Node root) {
+        if(root==null) return 0;
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+    }
     public static void main(String[] args) {
         Node a = new Node(1);
         Node b = new Node(2);
@@ -34,5 +38,7 @@ public class Basic {
         inOrder(a);
         System.out.println();
         postOrder(a);
+        System.out.println();
+        System.out.println(maxDepth(a));
     }
 }
