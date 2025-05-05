@@ -23,6 +23,18 @@ public class Basic {
         if(root==null) return 0;
         return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
+    public static boolean isSameTree(Node a, Node b) {
+        if(a==null && b==null) return true;
+        if(a==null || b==null) return false;
+        if(a.val != b.val) return false;
+        else if(isSameTree(a.left, b.left)) return true;
+        else if(isSameTree(a.right, b.right)) return true;
+        return false;
+    }
+    public static int totalSum(Node root) {
+        if(root==null) return 0;
+        return root.val + totalSum(root.left) + totalSum(root.right);
+    }
     public static void main(String[] args) {
         Node a = new Node(1);
         Node b = new Node(2);
@@ -40,5 +52,7 @@ public class Basic {
         postOrder(a);
         System.out.println();
         System.out.println(maxDepth(a));
+        System.out.println(isSameTree(a, a));
+        System.out.println(totalSum(a));
     }
 }
