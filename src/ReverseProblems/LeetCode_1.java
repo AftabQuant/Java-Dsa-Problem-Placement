@@ -27,10 +27,23 @@ public class LeetCode_1 {
         }
         System.out.println();
     }
+    public static boolean isPrimeNum(int num) {
+        if(num < 2) return false;
+        for(int i=2; i<Math.sqrt(num); i++) {
+            if(num%i == 0) return false;
+        }
+        return true;
+    }
+    public static void printPrime(int num) {
+        for(int i=2; i<=num; i++) {
+            if(isPrimeNum(i)) System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,5,6,7};
-        print(nums);
-        rotate(nums, 3);
-        print(nums);
+        System.out.println(Math.sqrt(16));
+        System.out.println(isPrimeNum(17));
+        printPrime(50);
     }
 }

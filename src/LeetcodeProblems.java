@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class ListNode {
     int val;
@@ -50,6 +49,43 @@ public class LeetcodeProblems {
         fast.val = temp;
         return head;
     }
+    public static ListNode odd_even_list(ListNode head) {
+        ListNode odd = new ListNode(-1);
+        ListNode even = new ListNode(-1);
+        ListNode oddHead = odd;
+        ListNode evenHead = even;
+        while(head != null) {
+            if(head.val%2 == 0) {
+                evenHead.next = head;
+                evenHead = head;
+            }
+            else {
+                oddHead.next = head;
+                oddHead = head;
+            }
+            head = head.next;
+        }
+        evenHead.next = null;
+        oddHead.next = even.next;
+        return odd.next;
+    }
+    public static void printList(ListNode head) {
+        while(head!=null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        ListNode c = new ListNode(3);
+        ListNode d = new ListNode(4);
+        ListNode e = new ListNode(5);
+        a.next = b; b.next = c; c.next = d; d.next = e;
+        printList(a);
+        odd_even_list(a);
+        printList(a);
     }
 }
