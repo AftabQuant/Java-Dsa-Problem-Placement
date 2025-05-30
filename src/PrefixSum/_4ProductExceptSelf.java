@@ -10,4 +10,11 @@ public class _4ProductExceptSelf {
         for(int i=0; i<nums.length; i++) nums[i] = pre[i] * suf[i];
         return nums;
     }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3, 4};
+        nums = productExceptSelf(nums);
+        for(int ele: nums) System.out.print(ele+" ");
+        System.out.println();
+    }
 }
