@@ -1,24 +1,18 @@
 package DynamicProgramming;
 
 public class _9MinimumPathSum {
-    public static int prefixSum(int[][] arr) {
-        for(int i=0; i<1; i++){
-            for(int j=1; j<arr[0].length; j++) {
-                arr[i][j] = arr[i][j] + arr[i][j-1];
+    public static int prefixSum(int[][] grid) {
+        int row = grid.length;
+        int col = grid[0].length;
+        for(int j=1; j<col; j++) grid[0][j] += grid[0][j-1];
+        for(int i=1; i<row; i++) grid[i][0] += grid[i-1][0];
+        for(int i=1; i<row; i++) {
+            for(int j=1; j<col; j++) {
+                grid[i][j] += Math.min(grid[i][j-1], grid[i-1][j]);
             }
         }
-        for(int i=0; i<1; i++) {
-            for(int j=1; j<arr.length; j++) {
-                arr[j][i] = arr[j][i] + arr[j-1][i];
-            }
-        }
-        for(int i=1; i<arr.length; i++) {
-            for(int j=1; j<arr[0].length; j++) {
-                arr[i][j] = arr[i][j] + Math.min(arr[i-1][j], arr[i][j-1]);
-            }
-        }
-        int n = arr.length-1;
-        return arr[n][arr[0].length - 1];
+        int n = grid.length - 1;
+        return grid[row-1][col-1];
     }
 
     public static void print(int[][] arr) {
