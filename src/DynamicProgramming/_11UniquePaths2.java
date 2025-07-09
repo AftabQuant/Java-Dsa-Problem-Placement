@@ -23,4 +23,7 @@ public class _11UniquePaths2 {
         }
         return grid[m - 1][n - 1];
     }
+    public static void main(String[] args) {
+
+    }
 }
