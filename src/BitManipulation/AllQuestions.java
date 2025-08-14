@@ -8,7 +8,7 @@ public class AllQuestions {
         x = x ^ y;
         y = x ^ y;
         x = x ^ y;
-        System.out.println("Aftab swap: " + x + " and " + y);
+        System.out.println("After swap: " + x + " and " + y);
     }
     public static void iskthSet(int number) {
         int mask = 1 << 3;
@@ -31,14 +31,7 @@ public class AllQuestions {
         System.out.println("After toggle the kth bit: " + result);
     }
     public static void turnOfRightBit(int num) {
-        int b = num;
-        int k = 0;
-        while(b%2 == 0) {
-            b = b >> 1;
-            k++;
-        }
-        int mask = ~(1 << k);
-        int ans = num & mask;
+        int ans = num & (num-1);
         System.out.println("After turn off rightmost bit: " + ans);
     }
     public static void main(String[] args) {
