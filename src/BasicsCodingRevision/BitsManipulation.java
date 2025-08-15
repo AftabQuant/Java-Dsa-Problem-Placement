@@ -44,6 +44,9 @@ public class BitsManipulation {
     }
 
     public static void turnOffRightmostBit(int num) {
+//        Most important line
+        System.out.println(num & (num-1));
+
         int b = num;
         int bit = 0;
         while(b%2 == 0) {
@@ -55,6 +58,6 @@ public class BitsManipulation {
         System.out.println(ans);
     }
     public static void main(String[] args) {
-        turnOffRightmostBit(6);
+        turnOffRightmostBit(8);
     }
 }
