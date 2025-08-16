@@ -230,13 +230,14 @@ public class PatternPrinting {
         for(int i=1; i<=2*n-1; i++) System.out.print(i+" ");
         System.out.println();
         n--;
+        int nsp = 1;
         for(int i=1; i<=n; i++) {
             int a = 1;
             for(int j=1; j<=n-i+1; j++) {
                 System.out.print(a++ + " ");
             }
             for(int j=1; j<=2*i-1; j++) {
-                System.out.print("* ");
+                System.out.print("  ");
                 a++;
             }
             for(int j=1; j<=n-i+1; j++) {
@@ -245,10 +246,105 @@ public class PatternPrinting {
             System.out.println();
         }
     }
+
+    public static void star_hourglass(int n) {
+        int nsp = 0;
+        int nst = 2*n-1;
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=nsp; j++) {
+                System.out.print("  ");
+            }
+            for(int j=1; j<=nst; j++) {
+                System.out.print("* ");
+            }
+            nsp++;
+            nst-=2;
+            System.out.println();
+        }
+        nsp = n-2;
+        nst = 3;
+        for(int i=1; i<n; i++) {
+            for(int j=1; j<=nsp; j++) {
+                System.out.print("  ");
+            }
+            for(int j=1; j<=nst; j++) {
+                System.out.print("* ");
+            }
+            nsp--;
+            nst+=2;
+            System.out.println();
+        }
+    }
+
+    public static void star_diamond2(int n) {
+        int nsp = n-1;
+        int nst = 1;
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=nsp; j++) {
+                System.out.print("  ");
+            }
+            for(int j=1; j<=nst; j++) {
+                System.out.print("* ");
+            }
+            nsp--;
+            nst += 2;
+            System.out.println();
+        }
+        nsp = 1;
+        nst -= 4;
+        for(int i=1; i<n; i++) {
+            for(int j=1; j<=nsp; j++) {
+                System.out.print("  ");
+            }
+            for(int j=1; j<=nst; j++) {
+                System.out.print("* ");
+            }
+            nsp++;
+            nst -= 2;
+            System.out.println();
+        }
+    }
+
+    public static void star_diamond(int n) {
+        for(int i=1; i<=n; i++) {
+            for(int j=1; j<=n-i; j++) {
+                System.out.print("  ");
+            }
+
+            for(int j=1; j<=2*i-1; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for(int i=1; i<n; i++) {
+            for(int j=1; j<=i; j++) {
+                System.out.print("  ");
+            }
+
+            for(int j=1; j<2*(n-i); j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void number_spiral(int n) {
+        for(int i=1; i<=2*n-1; i++) {
+            for(int j=1; j<=2*n-1; j++) {
+                int a = i, b = j;
+                if(a > n) a = 2*n-i;
+                if(b > n) b = 2*n-j;
+                System.out.print(n + 1 - Math.min(a, b) + " ");
+            }
+
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the row: ");
         int n = sc.nextInt();
-        number_bridge(n);
+        star_hourglass(n);
     }
 }
