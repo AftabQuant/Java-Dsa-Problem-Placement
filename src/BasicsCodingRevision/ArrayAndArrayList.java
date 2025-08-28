@@ -68,21 +68,81 @@ public class ArrayAndArrayList {
         }
     }
 
+    public static void print_wave(int[][] nums) {
+        for(int i=0; i<nums.length; i++) {
+            if(i%2 == 0) {
+                for(int j=0; j<nums[0].length; j++) System.out.print(nums[i][j] + " ");
+            }
+            else for(int j=nums[0].length-1; j>=0; j--) System.out.print(nums[i][j] + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
 
-    public static void main(String[] args) {
-        int[] arr = {12, 8, 41, 37, 2, 49, 16, 28, 21};
+    public static int[][] transpose_matrix(int[][] arr) {
+        int n = arr.length; int m = arr[0].length;
+        // Method 1 : brute force
+        int[][] tran = new int[m][n];
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                tran[j][i] = arr[i][j];
+            }
+        }
+        // Method 2 : swap method
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<i; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
 
+        return arr;
+    }
 
-        int[][] a = {{1,2,3}, {4,5,6}, {7,8,9}};
-        int[][] b = {{1,2,3}, {4,5,6}, {7,8,9}};
-
-        add_two_matrix(a, b);
-
-        for(int row[] : a) {
+    public static void print_2d(int[][] ar) {
+        for(int row[] : ar) {
             for(int ele : row) {
                 System.out.print(ele + " ");
             }
             System.out.println();
         }
+        System.out.println();
+    }
+    
+    public static void spiral_printing(int[][] arr) {
+        int fr = 0, fc = 0;
+        int lr = arr.length-1, lc = arr[0].length-1;
+        while(fr <= lr && fc<=lc) {
+            for(int j=fc; j<=lc; j++) {
+                System.out.print(arr[fr][j]+" ");
+            }
+            fr++;
+            for(int i=fr; i<=lr; i++) {
+                System.out.print(arr[i][lc] + " ");
+            }
+            lc--;
+            for(int j=lc; j>=fc; j--) {
+                System.out.print(arr[lr][j]+" ");
+            }
+            lr--;
+            for(int i=lr; i>=fr; i--) {
+                System.out.print(arr[i][fc] + " ");
+            }
+            fc++;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12, 8, 41, 37, 2, 49, 16, 28, 21};
+
+
+        int[][] a = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
+        int[][] b = {{1,2,3}, {4,5,6}, {7,8,9}};
+
+        print_2d(b);
+        spiral_printing(b);
+
+
     }
 }
