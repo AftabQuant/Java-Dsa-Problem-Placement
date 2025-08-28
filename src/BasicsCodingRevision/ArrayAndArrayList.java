@@ -1,6 +1,5 @@
 package BasicsCodingRevision;
-
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayAndArrayList {
     public static void reverse(int[] nums) {
@@ -133,16 +132,51 @@ public class ArrayAndArrayList {
         }
     }
 
+    public static void print_2dArrayList(List<List<Integer>> nums) {
+        for(int i=0; i<nums.size(); i++) {
+            List<Integer> x = nums.get(i);
+            for(int j=0; j<x.size(); j++) {
+                System.out.print(x.get(j) + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
+    public static List<List<Integer>> pascal_triangle(int n) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        for(int i=0; i<n; i++) {
+            List<Integer> list = new ArrayList<>();
+            for(int j=0; j<=i; j++) {
+                if(j==0 || i==j) list.add(1);
+                else list.add(res.get(i-1).get(j) + res.get(i-1).get(j-1));
+            }
+            res.add(list);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] arr = {12, 8, 41, 37, 2, 49, 16, 28, 21};
 
-
+        // 2-D Array :
         int[][] a = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
         int[][] b = {{1,2,3}, {4,5,6}, {7,8,9}};
 
-        print_2d(b);
-        spiral_printing(b);
+        // 1-D ArrayList :
+        List<Integer> x = new ArrayList<>();
+        x.add(10); x.add(20); x.add(30); x.add(40);
+        List<Integer> y = new ArrayList<>();
+        y.add(10); y.add(20); y.add(30);
+        List<Integer> z = new ArrayList<>();
+        z.add(10); z.add(20);
 
+        // 2-D ArrayList :
+        List<List<Integer>> list = new ArrayList<>();
+        list.add(x) ; list.add(y); list.add(z);
 
+        List<List<Integer>> nums = pascal_triangle(5);
+        print_2dArrayList(nums);
     }
 }
