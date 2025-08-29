@@ -22,6 +22,7 @@ public class ArrayAndArrayList {
         nums[i] = nums[j];
         nums[j] = temp;
     }
+
     public static void sort_0_1_2(int[] nums) {
         int lo = 0; int mid = 0; int hi = nums.length-1;
         while(mid < hi) {
@@ -35,6 +36,17 @@ public class ArrayAndArrayList {
                 hi--;
             }
         }
+    }
+
+    public static int binary_search(int[] nums, int target) {
+        int lo = 0, hi = nums.length-1;
+        while(lo <= hi) {
+            int mid = lo + (hi-lo)/2;
+            if(nums[mid] == target) return mid;
+            else if(nums[mid] < target) lo = mid+1;
+            else hi = mid-1;
+        }
+        return -1;
     }
 
     public static void next_greatest_element(int[] nums) {
@@ -178,7 +190,8 @@ public class ArrayAndArrayList {
 
         List<List<Integer>> nums = pascal_triangle(5);
 
-
+        int[] arrr = {1,2,3,4,5,6};
+        System.out.println(binary_search(arrr, 4));
 
     }
 }

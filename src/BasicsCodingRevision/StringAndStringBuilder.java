@@ -49,6 +49,7 @@ public class StringAndStringBuilder {
         }
         System.out.println(str);
     }
+
     public static void count_vowels(String s) {
         int cnt = 0;
         String ss = s.toLowerCase();
@@ -58,6 +59,7 @@ public class StringAndStringBuilder {
         }
         System.out.println(cnt);
     }
+
     public static void main(String[] args) {
         String s = "abcdefghijklmmop";
         update_even_position(s);
