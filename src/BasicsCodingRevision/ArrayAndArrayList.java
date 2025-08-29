@@ -177,6 +177,8 @@ public class ArrayAndArrayList {
         list.add(x) ; list.add(y); list.add(z);
 
         List<List<Integer>> nums = pascal_triangle(5);
-        print_2dArrayList(nums);
+
+
+
     }
 }
