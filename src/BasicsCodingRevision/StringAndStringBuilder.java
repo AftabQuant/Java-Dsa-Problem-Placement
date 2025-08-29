@@ -60,9 +60,43 @@ public class StringAndStringBuilder {
         System.out.println(cnt);
     }
 
+    public static void toggle_character(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        for(int i=0; i<sb.length(); i++) {
+            char ch = sb.charAt(i);
+            int ascii = (int) ch;
+            if(ascii >=65 && ascii <=90) {
+                ascii += 32;
+            }
+            else if(ascii >=97 && ascii <=122) {
+                ascii -= 32;
+            }
+            ch = (char) ascii;
+            sb.setCharAt(i, ch);
+        }
+        System.out.println(sb);
+    }
+
+    public static void reverse_each_word(String s) {
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder res = new StringBuilder();
+        for(int i=0; i<sb.length(); i++) {
+            char ch = sb.charAt(i);
+            if(ch == ' ') {
+                continue;
+            }
+            else {
+
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        String s = "abcdefghijklmmop";
-        update_even_position(s);
+        String s = "Md Aftab Uddin";
+
+        StringBuilder sb = new StringBuilder("abcde");
+
+
 
     }
 }
