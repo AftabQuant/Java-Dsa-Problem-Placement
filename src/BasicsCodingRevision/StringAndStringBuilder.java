@@ -77,26 +77,56 @@ public class StringAndStringBuilder {
         System.out.println(sb);
     }
 
-    public static void reverse_each_word(String s) {
-        StringBuilder sb = new StringBuilder(s);
-        StringBuilder res = new StringBuilder();
-        for(int i=0; i<sb.length(); i++) {
-            char ch = sb.charAt(i);
-            if(ch == ' ') {
-                continue;
-            }
-            else {
-
-            }
+    public static void reverse(StringBuilder sb, int i, int j) {
+        while(i<=j) {
+            char temp = sb.charAt(i);
+            sb.setCharAt(i, sb.charAt(j));
+            sb.setCharAt(j, temp);
+            i++; j--;
         }
     }
 
+    public static void reverse_each_word(String s) {
+        StringBuilder sb = new StringBuilder();
+        int i=0, j=0;
+        while(j<s.length()) {
+            char ch = s.charAt(j);
+            if(ch!=' ') {
+                j++;
+            }
+            else {
+                reverse(sb, i, j-1);
+                i = j+1;
+                j = i;
+            }
+            sb.append(ch);
+        }
+        reverse(sb, i, j-1);
+        System.out.println(sb);
+    }
+
+    public static String longestCommonPrefix(String[] strs) {
+        String s = "";
+        StringBuilder sb = new StringBuilder(s);
+
+        for(int i=0; i<strs[0].length(); i++) {
+            char ch = strs[0].charAt(i);
+            boolean flag = false;
+            for(int j=i+1; j<strs.length; j++) {
+                char ch1 = strs[j].charAt(i);
+                if(ch==ch1) flag = true;
+            }
+            if(flag) sb.append(ch);
+        }
+
+        return sb.toString();
+
+    }
+
     public static void main(String[] args) {
-        String s = "Md Aftab Uddin";
+        String s = "i am aftab uddin and i am a student";
 
-        StringBuilder sb = new StringBuilder("abcde");
-
-
+        reverse_each_word(s);
 
     }
 }
