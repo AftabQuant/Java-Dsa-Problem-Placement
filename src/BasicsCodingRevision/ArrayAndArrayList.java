@@ -169,8 +169,33 @@ public class ArrayAndArrayList {
         return res;
     }
 
+    public static int getMaxOccurance(int[] nums) {
+        Map<Integer, Integer> map = new TreeMap<>();
+
+        for(int ele : nums) {
+            map.put(ele, map.getOrDefault(ele, 0) + 1);
+        }
+
+        int freq = Integer.MIN_VALUE;
+        int res = Integer.MAX_VALUE;
+
+        for(int key : map.keySet()) {
+            int count = map.get(key);
+            System.out.println(key + " " + map.get(key));
+            if(count >= freq) {
+                freq = count;
+                res = key;
+            }
+
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] arr = {12, 8, 41, 37, 2, 49, 16, 28, 21};
+
+        int[] br = {1,2,1,3,4,3,1,3,4};
+        System.out.println(getMaxOccurance(br));
 
         // 2-D Array :
         int[][] a = {{1,2,3}, {4,5,6}, {7,8,9}, {10,11,12}};
@@ -191,7 +216,5 @@ public class ArrayAndArrayList {
         List<List<Integer>> nums = pascal_triangle(5);
 
         int[] arrr = {1,2,3,4,5,6};
-        System.out.println(binary_search(arrr, 4));
-
     }
 }

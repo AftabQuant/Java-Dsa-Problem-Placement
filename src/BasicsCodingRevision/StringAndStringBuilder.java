@@ -123,10 +123,36 @@ public class StringAndStringBuilder {
 
     }
 
+    public static boolean areIsomorphic(String s1, String s2) {
+        // code here
+        Map<Character, Integer> map1 = new TreeMap<>();
+        Map<Character, Integer> map2 = new TreeMap<>();
+
+        for(char ch : s1.toCharArray()) {
+            map1.put(ch, map1.getOrDefault(ch, 0)+1);
+        }
+
+        for(char ch : s2.toCharArray()) {
+            map2.put(ch, map2.getOrDefault(ch, 0)+1);
+        }
+
+        for(char key : map1.keySet()) {
+            int freq1 = map1.get(key);
+            int freq2 = map2.get(key);
+            if(freq1 != freq2) return false;
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        String s = "i am aftab uddin and i am a student";
+//        String s = "i am aftab uddin and i am a student";
+//
+//        char[] ch = s.toCharArray();
+//        Arrays.sort(ch);
+//        for(char h : ch) {
+//            System.out.print(h+" ");
+//        }
 
-        reverse_each_word(s);
-
+        System.out.println(areIsomorphic("aab", "xxy"));
     }
 }
