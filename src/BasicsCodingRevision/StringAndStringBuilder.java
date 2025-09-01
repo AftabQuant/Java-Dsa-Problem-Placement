@@ -153,6 +153,5 @@ public class StringAndStringBuilder {
 //            System.out.print(h+" ");
 //        }
 
-        System.out.println(areIsomorphic("aab", "xxy"));
     }
 }
