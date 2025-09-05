@@ -26,8 +26,16 @@ public class Cognizant {
             b = sum;
         }
     }
+
+    public static boolean isSortedArray(int[] b) {
+        for(int i=0; i<b.length-1; i++) {
+            if(b[i] >= b[i+1]) return false;
+        }
+        return true;
+    }
     public static void main(String[] args) {
-        fibonacciSeries(100);
+        int[] res = {1,2,6,4,5};
+        System.out.println(isSortedArray(res));
 
     }
 }
