@@ -1,4 +1,6 @@
 package BitManipulation;
+import java.util.*;
+
 
 public class CapgeminiPractice {
     public static boolean iskThSet(int n, int k) {
