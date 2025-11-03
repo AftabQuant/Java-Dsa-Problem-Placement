@@ -77,15 +77,38 @@ public class LeetcodeProblems {
         System.out.println();
     }
 
+    public static long solveProblem1(int n, String str) {
+        long res = 0;
+        for(int i=0; i<n; i++) {
+            for(int j = i+1; j<n; j++) {
+                long val1 = (long) str.charAt(i);
+                long val2 = (long) str.charAt(j);
+                if(val1 > 3 * val2) res++;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
-        ListNode a = new ListNode(1);
-        ListNode b = new ListNode(2);
-        ListNode c = new ListNode(3);
-        ListNode d = new ListNode(4);
-        ListNode e = new ListNode(5);
-        a.next = b; b.next = c; c.next = d; d.next = e;
-        printList(a);
-        odd_even_list(a);
-        printList(a);
+//        ListNode a = new ListNode(1);
+//        ListNode b = new ListNode(2);
+//        ListNode c = new ListNode(3);
+//        ListNode d = new ListNode(4);
+//        ListNode e = new ListNode(5);
+//        a.next = b; b.next = c; c.next = d; d.next = e;
+//
+//        for(int i=1; i<=6; i++) {
+//            for(int j=1; j<=i; j++) {
+//                if(j==1 || i==j || i==6){
+//                    System.out.print("*"+ " ");
+//                }
+//                else {
+//                    System.out.print(" " + " ");
+//                }
+//            }
+//            System.out.println();
+//        }
+
+        System.out.println(solveProblem1(5, "24310"));
     }
 }
