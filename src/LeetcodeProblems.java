@@ -108,7 +108,5 @@ public class LeetcodeProblems {
 //            }
 //            System.out.println();
 //        }
-
-        System.out.println(solveProblem1(5, "24310"));
     }
 }
