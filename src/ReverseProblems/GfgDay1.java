@@ -64,17 +64,35 @@ public class GfgDay1 {
 
         for(int i=n-1; i>0; i--) {
             if(prices[i] < prices[i-1]) {
-                int buy = prices[i];
-                profit = sell - buy;
-
+                int total = sell - prices[i];
+                profit += total;
+                sell = prices[i-1];
             }
+            if(i==1) {
+                int total = sell - prices[i-1];
+                profit += total;
+            }
+        }
+        return profit;
+    }
+
+    public int maximumProfit(int prices[]) {
+        int n = prices.length;
+        int profit = 0;
+        int min = prices[0];
+
+        for(int i=1; i<n; i++) {
+            min = Math.min(min, prices[i]);
+            int p = prices[i] - min;
+            profit = Math.max(profit, p);
         }
         return profit;
     }
     static void main(String[] args) {
         int arr[] = {100, 180, 260, 310, 40, 535, 695};
+        int[] b = {10 ,100, 250, 4, 2, 2};
 
         System.out.println(maxProfit(arr));
-
+        System.out.println(maxProfit(b));
     }
 }
