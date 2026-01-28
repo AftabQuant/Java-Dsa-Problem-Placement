@@ -56,7 +56,6 @@ public class GfgDay1 {
 
 
     }
-
     public static int maxProfit(int prices[]) {
         int n = prices.length;
         int sell = prices[n-1];
@@ -75,7 +74,6 @@ public class GfgDay1 {
         }
         return profit;
     }
-
     public int maximumProfit(int prices[]) {
         int n = prices.length;
         int profit = 0;
@@ -88,11 +86,33 @@ public class GfgDay1 {
         }
         return profit;
     }
+    public int missingNumber(int[] arr) {
+
+        Set<Integer> set = new TreeSet<>();
+
+        for(int ele: arr) set.add(ele);
+
+        int res = 0;
+
+        while(true) {
+            if(!set.contains(res)) return res;
+            res++;
+        }
+    }
+
     static void main(String[] args) {
         int arr[] = {100, 180, 260, 310, 40, 535, 695};
         int[] b = {10 ,100, 250, 4, 2, 2};
 
         System.out.println(maxProfit(arr));
         System.out.println(maxProfit(b));
+
+        String st = "abcd";
+        String ct = "abcd";
+        char[] a = st.toCharArray();
+
+        for(int i=0; i<a.length; i++) {
+            if(a[i] != ct.charAt(i)) {}
+        }
     }
 }
