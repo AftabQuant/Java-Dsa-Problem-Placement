@@ -99,20 +99,33 @@ public class GfgDay1 {
             res++;
         }
     }
+    public static int myAtoi(String s) {
+
+        long res=0; int idx = 0;
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i) == ' ') continue;
+            if(s.charAt(i) == '-') {
+                idx = i;
+                break;
+            }
+        }
+        for(int i=0; i<s.length(); i++) {
+            if(s.charAt(i)=='+' || s.charAt(i)=='-' || s.charAt(i)==' ') continue;
+            if(s.charAt(i)<=9) {
+                int num = s.charAt(i) - '0';
+            }
+            res = res * 10 + num;
+        }
+
+        System.out.println(res);
+
+        if(s.charAt(idx) != '-' && res>Integer.MAX_VALUE) return Integer.MAX_VALUE;
+        if(s.charAt(idx) == '-' && res<Integer.MIN_VALUE) return Integer.MIN_VALUE+1;
+        return 0;
+    }
 
     static void main(String[] args) {
-        int arr[] = {100, 180, 260, 310, 40, 535, 695};
-        int[] b = {10 ,100, 250, 4, 2, 2};
-
-        System.out.println(maxProfit(arr));
-        System.out.println(maxProfit(b));
-
-        String st = "abcd";
-        String ct = "abcd";
-        char[] a = st.toCharArray();
-
-        for(int i=0; i<a.length; i++) {
-            if(a[i] != ct.charAt(i)) {}
-        }
+        String s = "999999999999";
+        System.out.println(myAtoi(s));
     }
 }
