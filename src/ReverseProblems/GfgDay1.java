@@ -114,7 +114,6 @@ public class GfgDay1 {
             if(s.charAt(i)<=9) {
                 int num = s.charAt(i) - '0';
             }
-            res = res * 10 + num;
         }
 
         System.out.println(res);
@@ -123,9 +122,31 @@ public class GfgDay1 {
         if(s.charAt(idx) == '-' && res<Integer.MIN_VALUE) return Integer.MIN_VALUE+1;
         return 0;
     }
+    public static String addBinary(String s1, String s2) {
+        int i = s1.length() - 1;
+        int j = s2.length() - 1;
+        int carry = 0;
+        StringBuilder sb = new StringBuilder();
+        while(i>=0 || j>=0 || carry==1){
+            int sum = carry;
+            if(i>=0) sum += s1.charAt(i) - '0';
+            if(j>=0) sum += s2.charAt(j) - '0';
+            i--; j--;
+            sb.append(sum%2);
+            sum /= 2;
+        }
+        sb.reverse();
+        int idx = 0;
+        while(idx<sb.length()-1 && sb.charAt(idx)=='0') {
+            idx++;
+        }
+        return sb.substring(idx);
 
+    }
     static void main(String[] args) {
-        String s = "999999999999";
-        System.out.println(myAtoi(s));
+        String s1 = "1101";
+        String s2 = "111";
+
+        addBinary(s1, s2);
     }
 }
