@@ -143,10 +143,15 @@ public class GfgDay1 {
         return sb.substring(idx);
 
     }
+    public static boolean areRotations(String s1, String s2) {
+        String temp = s1 + s1;
+        return temp.contains(s2);
+
+    }
     static void main(String[] args) {
         String s1 = "1101";
-        String s2 = "111";
+        String s2 = "aab";
+        char[] c = s2.toCharArray();
 
-        addBinary(s1, s2);
     }
 }
