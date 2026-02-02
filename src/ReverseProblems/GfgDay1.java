@@ -152,6 +152,8 @@ public class GfgDay1 {
         String s1 = "1101";
         String s2 = "aab";
         char[] c = s2.toCharArray();
+        int[] a = {3,4};
+        Arrays.sort(a);
 
     }
 }
