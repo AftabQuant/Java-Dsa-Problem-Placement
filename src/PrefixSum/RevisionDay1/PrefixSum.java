@@ -33,7 +33,8 @@ public class PrefixSum {
         System.out.println("Prime Number!");
         return;
     }
-    static void main(String[] args) {
+
+    public static void main(String[] args) {
         printPrimeNumber(100);
         System.out.println();
         isPrimeNumber(11);
