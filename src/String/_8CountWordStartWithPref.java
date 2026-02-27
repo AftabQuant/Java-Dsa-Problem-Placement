@@ -9,6 +9,7 @@ public class _8CountWordStartWithPref {
         return count;
     }
     public static void main(String[] args) {
+        System.out.println("Hello Everyone");
 
     }
 }
